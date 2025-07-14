@@ -45,6 +45,7 @@ _VALID_STATES = [
     MediaPlayerState.IDLE,
     MediaPlayerState.PAUSED,
     MediaPlayerState.PLAYING,
+    MediaPlayerState.STANDBY,
 ]
 CONF_AVAILABILITY_TEMPLATE = "availability_template"
 CONF_MEDIAPLAYER = "media_players"
@@ -617,6 +618,8 @@ class MediaPlayerTemplate(TemplateEntity, MediaPlayerEntity):
             return MediaPlayerState.PAUSED
         elif self._state == "idle":
             return MediaPlayerState.IDLE
+        elif self._state == "standby":
+            return MediaPlayerState.STANDBY
         elif self._state == "on":
             return MediaPlayerState.ON
         elif self._state == "off":
